@@ -32,7 +32,7 @@
         jsonData: {},
         jsonFile: "research4_projects.json",
         group: 'by_genre',
-        tableData: {}
+        tableData: []
       }
     },
     mounted() {
