@@ -1,6 +1,6 @@
 <template>
   <el-menu
-    default-active="1"
+    :default-openeds='["1"]'
     class="menu"
     background-color="#4e4c97"
     text-color="#ececf0"
@@ -8,8 +8,18 @@
     router>
     <div class="stats-icon"></div>
     <el-menu-item index="/">
+      <i class="el-icon-menu"></i>
       <span slot="title">{{ $t("overview") }}</span>
     </el-menu-item>
+    <el-submenu index="1">
+      <template #title>
+        <i class="el-icon-document"></i>
+        <span>{{ $t("research4") }}</span>
+      </template>
+      <el-menu-item index="/research4-projects">
+        <span slot="title">{{ $t("project_appear") }}</span>
+      </el-menu-item>
+    </el-submenu>
   </el-menu>
 </template>
 
@@ -22,10 +32,14 @@
 <i18n>
   {
   "zh-CN": {
-  "overview": "总览"
+  "overview": "总览",
+  "research4": "四期科研",
+  "project_appear": "项目刷新"
   },
   "en-US": {
-  "overview": "Overview"
+  "overview": "Overview",
+  "research4": "Research S4",
+  "project_appear": "Project Appear"
   }
   }
 </i18n>

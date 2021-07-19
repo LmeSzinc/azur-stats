@@ -34,7 +34,6 @@
   import GetSource from "../components/GetSource"
 
   export default {
-
     name: "Home",
     components: {GetSource, VeLine},
     data() {
@@ -58,7 +57,6 @@
       get(this.jsonFile).then(res => {
         this.jsonData = res;
         this.chartData = res.uploads_history_24h;
-        console.log(this.chartData)
       })
     }
   }
