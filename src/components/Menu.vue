@@ -19,6 +19,9 @@
       <el-menu-item index="/research4-projects">
         <span slot="title">{{ $t("project_appear") }}</span>
       </el-menu-item>
+      <el-menu-item index="/research4-blueprints">
+        <span slot="title">{{ $t("blueprint_drop") }}</span>
+      </el-menu-item>
     </el-submenu>
   </el-menu>
 </template>
@@ -34,12 +37,14 @@
   "zh-CN": {
   "overview": "总览",
   "research4": "四期科研",
-  "project_appear": "项目刷新"
+  "project_appear": "项目刷新",
+  "blueprint_drop": "蓝图掉落"
   },
   "en-US": {
   "overview": "Overview",
   "research4": "Research S4",
-  "project_appear": "Project Appear"
+  "project_appear": "Project Appear",
+  "blueprint_drop": "Blueprint Drops"
   }
   }
 </i18n>
