@@ -5,6 +5,7 @@
       :name="tabIndex.toString()"
       v-for="(tabData, tabName, tabIndex) in data"
       :key="tabName"
+      lazy
     >
       <el-card
         :class="{'filter': true, 'is-active': filterData.name === filter}"
@@ -13,7 +14,15 @@
         :key="filterData.name"
       >
         <div class="option" @click="setFilter(filterData.name)">
-          <img class="option-inner" :src="'/static' + filterData.image" alt="" width="32px" height="32px">
+          <el-image class="option-inner option-image"
+                    :src="'/static' + filterData.image"
+                    fit="cover"
+                    lazy
+          >
+            <div slot="error" class="image-slot">
+              <i class="el-icon-picture-outline"></i>
+            </div>
+          </el-image>
           <el-divider class="option-inner" direction="vertical"></el-divider>
           <span class="option-inner option-name">{{ $t(filterData.name) }}</span>
         </div>
@@ -35,6 +44,9 @@
       i18n(val) {
         this.$i18n.mergeLocaleMessage('zh-CN', val["zh-CN"]);
         this.$i18n.mergeLocaleMessage('en-US', val["en-US"])
+      },
+      tab(val) {
+        this.setFilter(Object.values(this.data)[parseInt(val)][0].name)
       }
     },
     methods: {
@@ -89,7 +101,6 @@
     border-width: 2px;
     color: #757de8;
     font-weight: 700;
-
   }
 
   .option {
@@ -101,6 +112,11 @@
 
   .option-name {
     width: 160px;
+  }
+
+  .option-image {
+    width: 32px;
+    height: 32px;
   }
 
   .option-inner {
