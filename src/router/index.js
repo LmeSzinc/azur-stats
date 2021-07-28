@@ -30,6 +30,10 @@ export default new Router({
     {
       path: '/research4-others',
       component: Research4Others
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })

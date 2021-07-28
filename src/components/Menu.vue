@@ -2,10 +2,11 @@
   <el-menu
     :default-openeds='["1"]'
     class="menu"
-    background-color="#4e4c97"
     text-color="#ececf0"
     active-text-color="#ffffff"
-    router>
+    :default-active="$route.path"
+    router
+  >
     <div class="stats-icon"></div>
     <el-menu-item index="/">
       <i class="el-icon-menu"></i>
@@ -75,6 +76,25 @@
   }
 
   .el-menu {
-    border: 0
+    border: 0;
+    background-color: #4e4c97;
+    /*color: #ececf0;*/
+  }
+
+  /deep/ .el-submenu__title:hover {
+    background-color: #3e3d79;
+  }
+
+  .el-menu-item {
+    background-color: #4e4c97;
+  }
+
+  .el-menu-item:hover {
+    background-color: #3e3d79;
+  }
+
+  .el-menu-item.is-active {
+    background-color: #ff6c66;
+    color: #000000;
   }
 </style>
