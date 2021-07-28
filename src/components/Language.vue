@@ -18,7 +18,6 @@
     },
     methods: {
       setLocale: function (locale) {
-        console.log(locale);
         localStorage.setItem('locale', locale);
         this.$i18n.locale = locale;
       },
