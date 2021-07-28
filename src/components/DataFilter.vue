@@ -49,7 +49,6 @@
 <style scoped>
   /deep/ .el-card__body {
     padding: 0;
-    font-weight: 500;
     font-size: 14px;
   }
 
@@ -62,7 +61,7 @@
   }
 
   /deep/ .el-tabs__active-bar {
-    background-color: #4e4c97;
+    background-color: #757de8;
   }
 
   /deep/ .el-tabs__item.is-active {
@@ -77,15 +76,20 @@
   .filter {
     margin: 0 5px 10px 5px;
     height: 40px;
-    width: 215px;
+    width: 225px;
     float: left;
-
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
   }
 
   .el-card.is-hover-shadow.is-active {
-    border-color: #4e4c97;
-    color: #ececf0;
-    background-color: #4e4c97;
+    box-sizing: border-box;
+    border-color: #757de8;
+    border-width: 2px;
+    color: #757de8;
+    font-weight: 700;
+
   }
 
   .option {
