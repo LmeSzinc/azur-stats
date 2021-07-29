@@ -8,29 +8,26 @@
         </el-card>
       </div>
     </div>
-    <Menu/>
+    <sidebar></sidebar>
   </div>
 </template>
 
 <script>
-  import Menu from './components/Menu'
+  import Sidebar from './components/Sidebar'
   import Language from './components/Language'
 
   export default {
     name: 'App',
     components: {
       Language,
-      Menu,
+      Sidebar
     },
-
   }
 </script>
 
 <style scoped>
-
   .content {
     position: fixed;
-    left: 200px;
     top: 0;
     right: 0;
     bottom: 0;
@@ -42,7 +39,6 @@
     margin-left: 150px;
     padding-top: 75px;
     padding-bottom: 75px;
-
   }
 
   .paper {
@@ -53,6 +49,43 @@
 
   /deep/ .el-card__body {
     padding: 50px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .content {
+      left: 0;
+      top: 50px;
+    }
+
+    .paper-scroll {
+      margin-left: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .content {
+      left: 200px;
+    }
+
+    .paper-scroll {
+      margin-left: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: 1500px) {
+    .content {
+      left: 200px;
+    }
+
+    .paper-scroll {
+      margin-left: 150px;
+      padding-top: 75px;
+      padding-bottom: 75px;
+    }
   }
 </style>
 
