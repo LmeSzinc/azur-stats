@@ -93,7 +93,7 @@
     left: 0;
     top: 0;
     bottom: 0;
-    box-shadow: 0 19px 19px rgba(0, 0, 0, 0.30), 0 15px 6px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 0 19px rgba(0, 0, 0, 0.30), 0 0 6px rgba(0, 0, 0, 0.22);
   }
 
   .page-header {

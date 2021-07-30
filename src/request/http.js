@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 axios.defaults.baseURL = 'https://azurstats.lyoko.io/data/';
-axios.defaults.timeout = 5000;
+axios.defaults.timeout = 10000;
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
 
 // 响应拦截器

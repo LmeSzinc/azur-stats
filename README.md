@@ -1,4 +1,7 @@
 # Azur Stats
 
+碧蓝统计局
 
-Azur Stats, an anonymous drop rate statistics for Azur Lane CN, JP, EN, TW.
+Azur Stats, a drop statistics website for Azur Lane CN, JP, EN, TW.
+
+https://azur-stats.lyoko.io/

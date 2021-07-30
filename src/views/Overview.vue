@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="title">{{ $t("title") }}</p>
-    <p class="description">{{ $t("description") }}</p>
+    <p class="description" v-html="$t('description')" ></p>
     <div class="update">
       <el-divider content-position="left">{{ $t("update") }}</el-divider>
       <el-row :gutter="20">
@@ -66,7 +66,7 @@
   {
   "zh-CN": {
   "title": "碧蓝统计局",
-  "description": "碧蓝航线国服、日服、国际服、台服掉落数据匿名统计。",
+  "description": "碧蓝航线国服、日服、国际服、台服掉落统计网站。",
   "update": "数据概况",
   "last_update": "上一次更新:",
   "uploads_in_24h": "24小时内上传",
@@ -75,7 +75,7 @@
   },
   "en-US": {
   "title": "Azur Stats",
-  "description": "Anonymous drop rate statistics for Azur Lane CN, JP, EN, TW.",
+  "description": "A drop statistics website for Azur Lane CN, JP, EN, TW.",
   "update": "Data Overview",
   "last_update": "Last Update:",
   "uploads_in_24h": "Uploads in 24H",
