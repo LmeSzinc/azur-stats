@@ -23,19 +23,22 @@
       :header-cell-style="{'text-align': 'center'}"
       :default-sort="defaultSort"
     >
-      <el-table-column sortable prop="project" :label="$t('project')" width="120"></el-table-column>
-      <el-table-column sortable prop="samples" :label="$t('samples')"></el-table-column>
+      <el-table-column prop="name" :label="$t('project')" width="160">
+        <template slot-scope="scope">{{ $t(scope.row.project) }}</template>
+      </el-table-column>
+      <el-table-column prop="project" :label="$t('alias')" width="75"></el-table-column>
+      <el-table-column prop="samples" :label="$t('samples')" width="70"></el-table-column>
       <el-table-column :label="$t('drop')">
-        <el-table-column prop="drop_min" :label="$t('drop_min')" width="50"></el-table-column>
-        <el-table-column prop="drop_max" :label="$t('drop_max')" width="50"></el-table-column>
-        <el-table-column prop="drop_rate" :label="$t('drop_rate')" width="70"></el-table-column>
-        <el-table-column prop="drop_avg" :label="$t('drop_avg')" width="70"></el-table-column>
+        <el-table-column prop="drop_min" :label="$t('drop_min')" width="45"></el-table-column>
+        <el-table-column prop="drop_max" :label="$t('drop_max')" width="45"></el-table-column>
+        <el-table-column prop="drop_rate" :label="$t('drop_rate')" width="65"></el-table-column>
+        <el-table-column prop="drop_avg" :label="$t('drop_avg')" width="60"></el-table-column>
       </el-table-column>
       <el-table-column :label="$t('bonus')">
-        <el-table-column prop="bonus_min" :label="$t('bonus_min')" width="50"></el-table-column>
-        <el-table-column prop="bonus_max" :label="$t('bonus_max')" width="50"></el-table-column>
-        <el-table-column prop="bonus_rate" :label="$t('bonus_rate')" width="70"></el-table-column>
-        <el-table-column prop="bonus_avg" :label="$t('bonus_avg')" width="70"></el-table-column>
+        <el-table-column prop="bonus_min" :label="$t('bonus_min')" width="45"></el-table-column>
+        <el-table-column prop="bonus_max" :label="$t('bonus_max')" width="45"></el-table-column>
+        <el-table-column prop="bonus_rate" :label="$t('bonus_rate')" width="65"></el-table-column>
+        <el-table-column prop="bonus_avg" :label="$t('bonus_avg')" width="60"></el-table-column>
       </el-table-column>
       <el-table-column :label="$t('total')">
         <el-table-column sortable prop="average" :label="$t('average')"></el-table-column>
@@ -102,6 +105,7 @@
   "data_group": "项目分组",
   "data_table": "数据表格",
   "project": "项目",
+  "alias": "别名",
   "samples": "样本数",
   "drop": "掉落",
   "bonus": "BONUS",
@@ -122,6 +126,7 @@
   "data_group": "Project Grouping",
   "data_table": "Data Table",
   "project": "Project",
+  "alias": "Alias",
   "samples": "Samples",
   "drop": "Drop",
   "bonus": "Bonus",
@@ -142,6 +147,11 @@
 
 <style scoped>
   /deep/ .el-table .cell {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  /deep/ .el-table--border th:first-child .cell {
     padding-left: 5px;
     padding-right: 5px;
   }
