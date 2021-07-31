@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Overview from '../views/Overview'
+import Api from '../views/Api'
 import Research4Projects from '../views/Research4Projects'
 import Research4Blueprints from '../views/Research4Blueprints'
 import Research4Equipments from '../views/Research4Equipments'
@@ -14,6 +15,10 @@ export default new Router({
     {
       path: '/',
       component: Overview
+    },
+    {
+      path: '/api',
+      component: Api
     },
     {
       path: '/research4-projects',

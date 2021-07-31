@@ -41,6 +41,10 @@
           <span slot="title">{{ $t("/research4-others") }}</span>
         </el-menu-item>
       </el-submenu>
+      <el-menu-item index="/api">
+        <i class="el-icon-upload2"></i>
+        <span slot="title">{{ $t("/api") }}</span>
+      </el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -72,7 +76,8 @@
   "/research4-projects": "项目刷新",
   "/research4-blueprints": "科研蓝图",
   "/research4-equipments": "装备设计图",
-  "/research4-others": "其他物品"
+  "/research4-others": "其他物品",
+  "/api": "API 文档"
   },
   "en-US": {
   "/": "Overview",
@@ -80,7 +85,8 @@
   "/research4-projects": "Project Appear",
   "/research4-blueprints": "Research Blueprints",
   "/research4-equipments": "Equipment Designs",
-  "/research4-others": "Other Items"
+  "/research4-others": "Other Items",
+  "/api": "API Documentation"
   }
   }
 </i18n>
