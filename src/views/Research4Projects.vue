@@ -1,10 +1,21 @@
 <template>
   <div>
     <h1 class="title">{{ $t("title") }}</h1>
-    <el-divider content-position="left">Research Series</el-divider>
-    <el-table :data="seriesData" stripe style="width: 100%" :cell-style="{padding: '6px'}">
-      <el-table-column prop="series" :label="$t('project')" width="240"></el-table-column>
-      <el-table-column prop="samples" :label="$t('samples')" width="180"></el-table-column>
+    <el-divider content-position="left">{{ $t("series_rate") }}</el-divider>
+    <el-table
+      :data="seriesData"
+      border
+      style="width: 68%"
+      :header-cell-style="{'background': '#F5F7FA'}"
+      :cell-style="{padding: '6px'}"
+    >
+      <el-table-column prop="name" :label="$t('project')">
+          <template slot-scope="scope">
+            {{ $t(scope.row.series) }}
+          </template>
+        </el-table-column>
+      <el-table-column prop="series" :label="$t('alias')"></el-table-column>
+      <el-table-column prop="samples" :label="$t('samples')"></el-table-column>
       <el-table-column prop="rate" :label="$t('rate')"></el-table-column>
     </el-table>
 
@@ -65,7 +76,7 @@
         </template>
       </el-table-column>
       <el-table-column prop="group_to_genre" :label="$t('group_to_genre')" align="right"></el-table-column>
-      <el-table-column :label="$t('project')">
+      <el-table-column :label="$t('group')">
         <el-table-column prop="name" :label="$t('group')" width="180" align="right">
           <template slot-scope="scope">{{ $t(scope.row.project) }}</template>
         </el-table-column>
@@ -156,7 +167,8 @@
     },
     watch: {
       jsonData(val) {
-        this.updateTableData()
+        this.updateTableData();
+        this.seriesData = val.data.BySeries
       },
       dataFilter(val) {
         this.updateTableData()
@@ -169,6 +181,7 @@
   {
   "zh-CN": {
   "title": "四期科研 - 项目刷新概率",
+  "series_rate": "四期概率",
   "data_group": "数据分组",
   "data_table": "数据表格",
   "genre_to_all": "类别占全部 %",
@@ -183,6 +196,7 @@
   },
   "en-US": {
   "title": "Research S4 - Project Appear Possibility",
+  "series_rate": "PR4 Rate",
   "data_group": "Data Grouping",
   "data_table": "Data Table",
   "genre_to_all": "% of genre to all",
