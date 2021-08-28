@@ -37,6 +37,9 @@
         <el-menu-item index="/research4-equipments">
           <span slot="title">{{ $t("/research4-equipments") }}</span>
         </el-menu-item>
+        <el-menu-item index="/research4-equipments-20210819">
+          <span slot="title">{{ $t("/research4-equipments-20210819") }}</span>
+        </el-menu-item>
         <el-menu-item index="/research4-others">
           <span slot="title">{{ $t("/research4-others") }}</span>
         </el-menu-item>
@@ -76,6 +79,7 @@
   "/research4-projects": "项目刷新",
   "/research4-blueprints": "科研蓝图",
   "/research4-equipments": "装备设计图",
+  "/research4-equipments-20210819": "装备 20210819",
   "/research4-others": "其他物品",
   "/api": "API 文档"
   },
@@ -85,6 +89,7 @@
   "/research4-projects": "Project Appear",
   "/research4-blueprints": "Research Blueprints",
   "/research4-equipments": "Equipment Designs",
+  "/research4-equipments-20210819": "Equipment (20210819)",
   "/research4-others": "Other Items",
   "/api": "API Documentation"
   }
