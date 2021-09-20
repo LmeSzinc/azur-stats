@@ -2,6 +2,12 @@
   <div>
     <p class="title">{{ $t("title") }}</p>
     <p class="description" v-html="$t('description')" ></p>
+    <div>
+      <span>Source Code: </span>
+      <el-link href="https://github.com/LmeSzinc/azur-stats" icon="el-icon-view">Frontend</el-link>
+      |
+      <el-link href="https://github.com/LmeSzinc/azur-stats-server" icon="el-icon-view">Backend</el-link>
+    </div>
     <div class="update">
       <el-divider content-position="left">{{ $t("update") }}</el-divider>
       <el-row :gutter="20">
