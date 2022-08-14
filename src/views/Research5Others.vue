@@ -12,12 +12,12 @@
   import ResearchTable from "../components/ResearchTable"
 
   export default {
-    name: "Research4Equipments",
+    name: "Research5Equipments",
     components: {ResearchTable},
     data() {
       return {
-        jsonFile: "/ResearchS4/blueprints.json",
-        jsonPreset: "/ResearchS4",
+        jsonFile: "/ResearchS5/others.json",
+        jsonPreset: "/ResearchS5",
       }
     }
   }
@@ -26,10 +26,10 @@
 <i18n>
   {
   "zh-CN": {
-  "title": "四期科研 - 蓝图掉落"
+  "title": "五期科研 - 其他物品掉落"
   },
   "en-US": {
-  "title": "Research S4 - Blueprints Drops"
+  "title": "Research S5 - Other Items Drops"
   }
   }
 </i18n>

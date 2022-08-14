@@ -95,7 +95,7 @@
   import DataFilter from "../components/DataFilter"
 
   export default {
-    name: "Research4Projects",
+    name: "Research5Projects",
     components: {GetSource, DataFilter},
     data() {
       return {

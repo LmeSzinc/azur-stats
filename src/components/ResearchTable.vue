@@ -1,51 +1,47 @@
 <template>
   <div>
     <el-divider content-position="left">{{ $t("items_group") }}</el-divider>
-    <data-filter :data="jsonData.items_group"
+    <data-filter :data="tableData.item_filter"
                  :filter="itemFilter"
-                 :i18n="jsonData.i18n"
+                 :i18n="tableData.i18n"
                  @setFilter="setItemFilter"
     ></data-filter>
 
     <el-divider content-position="left">{{ $t("data_group") }}</el-divider>
-    <data-filter :data="jsonData.data_group"
-                 :filter="dataFilter"
-                 :i18n="jsonData.i18n"
-                 @setFilter="setDataFilter"
+    <data-filter :data="tableData.grouping_filter"
+                 :filter="groupingFilter"
+                 :i18n="tableData.i18n"
+                 @setFilter="setGroupingFilter"
     ></data-filter>
 
     <el-divider content-position="left">{{ $t("data_table") }}</el-divider>
     <el-table
-      :data="filteredTableData"
+      :data="dropData"
       stripe
       style="width: 100%"
       :cell-style="{padding: '5px'}"
       :header-cell-style="{'text-align': 'center'}"
       :default-sort="defaultSort"
     >
-      <el-table-column prop="name" :label="$t('project')" width="160">
+      <el-table-column prop="name" :label="$t('project')" width="180">
         <template slot-scope="scope">{{ $t(scope.row.project) }}</template>
       </el-table-column>
-      <el-table-column prop="project" :label="$t('alias')" width="75"></el-table-column>
-      <el-table-column prop="samples" :label="$t('samples')" width="70"></el-table-column>
+      <el-table-column sortable prop="project" :label="$t('alias')"></el-table-column>
+      <el-table-column prop="samples" :label="$t('samples')"></el-table-column>
       <el-table-column :label="$t('drop')">
-        <el-table-column prop="drop_min" :label="$t('drop_min')" width="45"></el-table-column>
-        <el-table-column prop="drop_max" :label="$t('drop_max')" width="45"></el-table-column>
-        <el-table-column prop="drop_rate" :label="$t('drop_rate')" width="65"></el-table-column>
-        <el-table-column prop="drop_avg" :label="$t('drop_avg')" width="60"></el-table-column>
+        <el-table-column prop="drop_range" :label="$t('drop_range')"></el-table-column>
+        <el-table-column prop="drop_avg" :label="$t('drop_avg')"></el-table-column>
       </el-table-column>
       <el-table-column :label="$t('bonus')">
-        <el-table-column prop="bonus_min" :label="$t('bonus_min')" width="45"></el-table-column>
-        <el-table-column prop="bonus_max" :label="$t('bonus_max')" width="45"></el-table-column>
-        <el-table-column prop="bonus_rate" :label="$t('bonus_rate')" width="65"></el-table-column>
-        <el-table-column prop="bonus_avg" :label="$t('bonus_avg')" width="60"></el-table-column>
+        <el-table-column prop="bonus_range" :label="$t('bonus_range')"></el-table-column>
+        <el-table-column prop="bonus_avg" :label="$t('bonus_avg')"></el-table-column>
       </el-table-column>
       <el-table-column :label="$t('total')">
         <el-table-column sortable prop="average" :label="$t('average')"></el-table-column>
         <el-table-column sortable prop="hourly" :label="$t('hourly')"></el-table-column>
       </el-table-column>
     </el-table>
-    <get-source :json-file=jsonFile></get-source>
+    <get-source :json-file=tableDataFile></get-source>
   </div>
 </template>
 
@@ -58,43 +54,49 @@
     name: "ResearchTable",
     props: {
       "jsonFile": {required: true},
-      "defaultItem": {},
-      "defaultData": {},
+      "jsonPreset": {required: true},
       "tableName": {default: "Drop Statistics"}
     },
     components: {DataFilter, GetSource},
     data() {
       return {
         defaultSort: {prop: 'hourly', order: 'descending'},
-        jsonData: {},
+        tableData: {},
+        dropData: [],
         itemFilter: "",
-        dataFilter: ""
+        groupingFilter: ""
       }
     },
     mounted() {
       get(this.jsonFile).then(res => {
-        this.jsonData = res;
-        this.itemFilter = this.defaultItem;
-        this.dataFilter = this.defaultData;
+        this.tableData = res;
+        this.itemFilter = res['item_filter_default'];
+        this.groupingFilter = res['grouping_filter_default'];
         this.$i18n.mergeLocaleMessage('zh-CN', res.i18n["zh-CN"]);
-        this.$i18n.mergeLocaleMessage('en-US', res.i18n["en-US"])
+        this.$i18n.mergeLocaleMessage('en-US', res.i18n["en-US"]);
+        this.updateTable()
       })
     },
     methods: {
       setItemFilter: function (filter) {
-        this.itemFilter = filter
+        this.itemFilter = filter;
+        this.updateTable()
       },
-      setDataFilter: function (filter) {
-        this.dataFilter = filter
+      setGroupingFilter: function (filter) {
+        this.groupingFilter = filter;
+        this.updateTable()
+      },
+      updateTable: function () {
+        get(this.tableDataFile).then(res => {
+          this.dropData = res
+        })
       }
     },
     computed: {
-      filteredTableData: function () {
-        if (this.jsonData["data"] !== undefined && this.jsonData["data"][this.dataFilter] !== undefined) {
-          return this.jsonData["data"][this.dataFilter].filter(value => value.item === this.itemFilter);
-        }
-      },
-    },
+      tableDataFile: function () {
+        return `${this.jsonPreset}/${this.groupingFilter}/${this.itemFilter}.json`;
+      }
+    }
   }
 </script>
 
@@ -110,13 +112,9 @@
   "drop": "掉落",
   "bonus": "BONUS",
   "total": "总计",
-  "drop_rate": "概率",
-  "drop_min": "最小",
-  "drop_max": "最大",
+  "drop_range": "数量",
   "drop_avg": "平均",
-  "bonus_rate": "概率",
-  "bonus_min": "最小",
-  "bonus_max": "最大",
+  "bonus_range": "数量",
   "bonus_avg": "平均",
   "average": "单次",
   "hourly": "每小时"
@@ -131,14 +129,10 @@
   "drop": "Drop",
   "bonus": "Bonus",
   "total": "Total",
-  "drop_rate": "rate",
-  "drop_min": "min",
-  "drop_max": "max",
-  "drop_avg": "avg",
-  "bonus_rate": "rate",
-  "bonus_min": "min",
-  "bonus_max": "max",
-  "bonus_avg": "avg",
+  "drop_range": "Amount",
+  "drop_avg": "Average",
+  "bonus_range": "Amount",
+  "bonus_avg": "Average",
   "average": "Each",
   "hourly": "Hourly"
   }

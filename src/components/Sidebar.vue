@@ -10,7 +10,7 @@
     </div>
     <div class="overlay" v-if="isSidebarOpen" @click="closeSidebar"></div>
     <el-menu
-      :default-openeds='["1"]'
+      :default-openeds='["1", "2"]'
       :class="['sidebar', {'closed-sidebar': !isSidebarOpen}]"
       text-color="#ececf0"
       active-text-color="#ececf0"
@@ -26,19 +26,34 @@
       <el-submenu index="1">
         <template #title>
           <i class="el-icon-document"></i>
+          <span>{{ $t("research5") }}</span>
+        </template>
+<!--        <el-menu-item index="/research5-projects">-->
+<!--          <span slot="title">{{ $t("/research5-projects") }}</span>-->
+<!--        </el-menu-item>-->
+        <el-menu-item index="/research5-blueprints">
+          <span slot="title">{{ $t("/research5-blueprints") }}</span>
+        </el-menu-item>
+        <el-menu-item index="/research5-equipments">
+          <span slot="title">{{ $t("/research5-equipments") }}</span>
+        </el-menu-item>
+        <el-menu-item index="/research5-others">
+          <span slot="title">{{ $t("/research5-others") }}</span>
+        </el-menu-item>
+      </el-submenu>
+      <el-submenu index="2">
+        <template #title>
+          <i class="el-icon-document"></i>
           <span>{{ $t("research4") }}</span>
         </template>
-        <el-menu-item index="/research4-projects">
-          <span slot="title">{{ $t("/research4-projects") }}</span>
-        </el-menu-item>
+<!--        <el-menu-item index="/research4-projects">-->
+<!--          <span slot="title">{{ $t("/research4-projects") }}</span>-->
+<!--        </el-menu-item>-->
         <el-menu-item index="/research4-blueprints">
           <span slot="title">{{ $t("/research4-blueprints") }}</span>
         </el-menu-item>
         <el-menu-item index="/research4-equipments">
           <span slot="title">{{ $t("/research4-equipments") }}</span>
-        </el-menu-item>
-        <el-menu-item index="/research4-equipments-20210819">
-          <span slot="title">{{ $t("/research4-equipments-20210819") }}</span>
         </el-menu-item>
         <el-menu-item index="/research4-others">
           <span slot="title">{{ $t("/research4-others") }}</span>
@@ -79,8 +94,12 @@
   "/research4-projects": "项目刷新",
   "/research4-blueprints": "科研蓝图",
   "/research4-equipments": "装备设计图",
-  "/research4-equipments-20210819": "装备 20210819",
   "/research4-others": "其他物品",
+  "research5": "五期科研",
+  "/research5-projects": "项目刷新",
+  "/research5-blueprints": "科研蓝图",
+  "/research5-equipments": "装备设计图",
+  "/research5-others": "其他物品",
   "/api": "API 文档"
   },
   "en-US": {
@@ -89,8 +108,12 @@
   "/research4-projects": "Project Appear",
   "/research4-blueprints": "Research Blueprints",
   "/research4-equipments": "Equipment Designs",
-  "/research4-equipments-20210819": "Equipment (20210819)",
   "/research4-others": "Other Items",
+  "research5": "Research S5",
+  "/research5-projects": "Project Appear",
+  "/research5-blueprints": "Research Blueprints",
+  "/research5-equipments": "Equipment Designs",
+  "/research5-others": "Other Items",
   "/api": "API Documentation"
   }
   }

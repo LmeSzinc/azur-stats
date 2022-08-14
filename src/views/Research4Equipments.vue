@@ -2,33 +2,23 @@
   <div>
     <h1 class="title">{{ $t("title") }}</h1>
     <research-table :json-file="jsonFile"
-                    :default-item="itemFilter"
-                    :default-data="dataFilter"
+                    :json-preset="jsonPreset"
                     :table-name="$t('title')"
     ></research-table>
   </div>
 </template>
 
 <script>
-  import {get} from "../request/http";
-  import GetSource from "../components/GetSource"
   import ResearchTable from "../components/ResearchTable"
 
   export default {
     name: "Research4Equipments",
-    components: {ResearchTable, GetSource},
+    components: {ResearchTable},
     data() {
       return {
-        jsonData: {},
-        jsonFile: "research4_equipments.json",
-        itemFilter: "EquipmentUltrarare",
-        dataFilter: "ByGenreduration",
+        jsonFile: "/ResearchS4/equipments.json",
+        jsonPreset: "/ResearchS4",
       }
-    },
-    mounted() {
-      get(this.jsonFile).then(res => {
-        this.jsonData = res;
-      })
     }
   }
 </script>

@@ -17,7 +17,7 @@
     props: ["jsonFile"],
     methods: {
       dataApi: function (url) {
-        return axios.defaults.baseURL + url
+        return axios.defaults.baseURL.slice(0, -1) + url
       }
     }
   }

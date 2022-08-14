@@ -5,8 +5,11 @@ import Api from '../views/Api'
 import Research4Projects from '../views/Research4Projects'
 import Research4Blueprints from '../views/Research4Blueprints'
 import Research4Equipments from '../views/Research4Equipments'
-import Research4Equipments20210819 from "../views/Research4Equipments20210819";
 import Research4Others from '../views/Research4Others'
+import Research5Projects from '../views/Research5Projects'
+import Research5Blueprints from '../views/Research5Blueprints'
+import Research5Equipments from '../views/Research5Equipments'
+import Research5Others from '../views/Research5Others'
 
 Vue.use(Router);
 
@@ -34,12 +37,24 @@ export default new Router({
       component: Research4Equipments
     },
     {
-      path: '/research4-equipments-20210819',
-      component: Research4Equipments20210819
-    },
-    {
       path: '/research4-others',
       component: Research4Others
+    },
+    {
+      path: '/research5-projects',
+      component: Research5Projects
+    },
+    {
+      path: '/research5-blueprints',
+      component: Research5Blueprints
+    },
+    {
+      path: '/research5-equipments',
+      component: Research5Equipments
+    },
+    {
+      path: '/research5-others',
+      component: Research5Others
     },
     {
       path: '*',
