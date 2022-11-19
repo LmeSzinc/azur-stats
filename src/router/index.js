@@ -10,6 +10,7 @@ import Research5Projects from '../views/Research5Projects'
 import Research5Blueprints from '../views/Research5Blueprints'
 import Research5Equipments from '../views/Research5Equipments'
 import Research5Others from '../views/Research5Others'
+import ShopItems from '../views/ShopItems'
 
 Vue.use(Router);
 
@@ -55,6 +56,10 @@ export default new Router({
     {
       path: '/research5-others',
       component: Research5Others
+    },
+    {
+      path: '/shop-items',
+      component: ShopItems
     },
     {
       path: '*',

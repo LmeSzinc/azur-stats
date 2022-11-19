@@ -45,7 +45,7 @@
     data() {
       return {
         jsonData: {},
-        jsonFile: "overview.json",
+        jsonFile: "/overview.json",
         colors: ["#4e4c97",],
         chartSettings: {
           "min": 0,

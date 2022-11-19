@@ -59,6 +59,10 @@
           <span slot="title">{{ $t("/research4-others") }}</span>
         </el-menu-item>
       </el-submenu>
+      <el-menu-item index="/shop-items">
+        <i class="el-icon-view"></i>
+        <span slot="title">{{ $t("/shop-items") }}</span>
+      </el-menu-item>
       <el-menu-item index="/api">
         <i class="el-icon-upload2"></i>
         <span slot="title">{{ $t("/api") }}</span>
@@ -100,6 +104,7 @@
   "/research5-blueprints": "科研蓝图",
   "/research5-equipments": "装备设计图",
   "/research5-others": "其他物品",
+  "/shop-items": "商店物品",
   "/api": "API 文档"
   },
   "en-US": {
@@ -114,6 +119,7 @@
   "/research5-blueprints": "Research Blueprints",
   "/research5-equipments": "Equipment Designs",
   "/research5-others": "Other Items",
+  "/shop-items": "Shop Items",
   "/api": "API Documentation"
   }
   }
